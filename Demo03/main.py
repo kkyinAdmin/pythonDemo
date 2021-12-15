@@ -12,7 +12,7 @@ if __name__ == '__main__':
             socketPORT = input('请输入绑定端口：')
             try:
                 skServer = socket.socket()  # 创建客户套接字
-                skServer.bind(('127.0.0.1', int(socketPORT)))  # 把地址绑定到套接字
+                skServer.bind(('127.0.0.1', int(socketPORT.strip())))  # 把地址绑定到套接字
                 skServer.listen()  # 监听链接
             except:
                 print('绑定异常！')
@@ -28,8 +28,8 @@ if __name__ == '__main__':
             skServer.close()  # 关闭服务器套接字(可选)  代码这里直接关闭服务器套接字重新绑定端口
             recvMsg = ''
             continue
-        recvMsg = tmpRecvMsg.decode()  # byte解码 如b'hi'转为'hi'
+        recvMsg = tmpRecvMsg.decode("utf-8")  # byte解码 如b'hi'转为'hi'
         print('<---'+recvMsg)
         sendMsg = "hi"
-        conn.send(sendMsg.encode())
+        conn.send(sendMsg.encode("utf-8"))
         print('--->' + sendMsg)

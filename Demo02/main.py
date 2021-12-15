@@ -20,7 +20,7 @@ def socketConnect(argvSocketIP, argvSocketPORT):
 def socketSend(argvSendMsg):
     try:
         print('DAT--->：' + argvSendMsg)
-        skClient.sendall(argvSendMsg.encode())
+        skClient.sendall(argvSendMsg.encode("utf-8"))
         # ret = skClient.recv(1024)  # 对话(发送/接收)
         # print(ret.decode())
     except:
@@ -31,9 +31,9 @@ def socketRecv():
     try:
         tmpRecvMsg = skClient.recv(1024)  # 对话(发送/接收)
         print('DAT<---：' + tmpRecvMsg.decode())
-        if tmpRecvMsg.decode() == "":
+        if tmpRecvMsg.decode("utf-8") == "":
             socketClose()
-        return tmpRecvMsg.decode()
+        return tmpRecvMsg.decode("utf-8")
     except:
         print("接收异常！")
         socketClose()
@@ -58,7 +58,7 @@ if __name__ == '__main__':
             socketIP = input('请输入IP：')
             socketPORT = input('请输入端口：')
             skClient = socket.socket()  # 创建客户套接字
-            ret = socketConnect(socketIP, socketPORT)
+            ret = socketConnect(socketIP.strip(), socketPORT.strip())
             if not ret:
                 continue
         sendMsg = raw_input('请输入要发送的报文：')  # input
