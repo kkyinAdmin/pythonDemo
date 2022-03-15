@@ -1,5 +1,5 @@
 # 这是一个示例 Python 脚本。
-# socket客户端 输入IP 端口号与服务端建立连接
+# socket客户端 输入IP 端口号与服务端建立连接 配合demo02调用
 
 import socket
 

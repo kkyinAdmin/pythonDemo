@@ -1,5 +1,5 @@
 # 这是一个示例 Python 脚本。
-# socket服务端 绑定输入的端口
+# socket服务端 绑定输入的端口 配合demo01调用
 
 import socket
 
