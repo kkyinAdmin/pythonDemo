@@ -8,7 +8,8 @@ def hello_world():
     return 'Hello World!'
 
 
-@app.route('/login')
+# 指定请求方式
+@app.route('/login', methods=['POST', 'GET'])
 def login():
     return '登录成功'
 
