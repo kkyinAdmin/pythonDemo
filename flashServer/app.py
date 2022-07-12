@@ -12,6 +12,7 @@ def hello_world():
 def login():
     return '登录成功'
 
+
 # 转换器
 @app.route('/index/<uid>')
 def index(uid):
