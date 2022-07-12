@@ -23,9 +23,13 @@ def index(uid):
 # 多个指向
 @app.route('/page1')
 @app.route('/page2')
+@app.route('/page3')
 def page0():
     return "这是page0"
 
 
 if __name__ == '__main__':
+    # 调试 debug=True不生效     app.debug = True也不生效 app.config.update(DEBUG=True)也不生效
+    # app.debug = True
+    # app.config.update(DEBUG=True)
     app.run()
