@@ -17,7 +17,8 @@ def login():
 # 转换器
 @app.route('/uid/<uid>')
 def index(uid):
-    return "id为：" + uid
+    # return "id为：" + uid
+    return "id为：%s" % uid
 
 
 # 多个指向
@@ -29,7 +30,9 @@ def page0():
 
 
 if __name__ == '__main__':
-    # 调试 debug=True不生效     app.debug = True也不生效 app.config.update(DEBUG=True)也不生效
+    # 调试 debug=True不生效     app.debug = True也不生效 app.config.update(DEBUG=True)也不生效 取决flask版本
     # app.debug = True
     # app.config.update(DEBUG=True)
+    # 装饰器
+    app.add_url_rule('/', 'urlRule', page0)
     app.run()
