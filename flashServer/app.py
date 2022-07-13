@@ -29,10 +29,17 @@ def page0():
     return "这是page0"
 
 
+def pagetest():
+    return "pagetest"
+
+
+# app.add_url_rule('/urlRule/',  pagetest)
+
+
 if __name__ == '__main__':
     # 调试 debug=True不生效     app.debug = True也不生效 app.config.update(DEBUG=True)也不生效 取决flask版本
     # app.debug = True
     # app.config.update(DEBUG=True)
-    # 装饰器
-    app.add_url_rule('/', 'urlRule', page0)
+    # 路由重定向 不生效
+    app.add_url_rule('/urlRule/',  pagetest)
     app.run()
