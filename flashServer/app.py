@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,render_template
 
 app = Flask(__name__)
 
@@ -29,11 +29,14 @@ def page0():
     return "这是page0"
 
 
+# 模板
+@app.route('/templates')
+def templates():
+    return render_template('index.html')
+
+
 def pagetest():
     return "pagetest"
-
-
-# app.add_url_rule('/urlRule/',  pagetest)
 
 
 if __name__ == '__main__':
@@ -41,5 +44,5 @@ if __name__ == '__main__':
     # app.debug = True
     # app.config.update(DEBUG=True)
     # 路由重定向 不生效
-    app.add_url_rule('/urlRule/',  pagetest)
+    # app.add_url_rule('/urlRule/',  pagetest)
     app.run()
