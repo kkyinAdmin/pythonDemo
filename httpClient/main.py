@@ -9,6 +9,7 @@ from urllib import request, parse
 
 def httpPost(url, path, data, header):
     conn = http.client.HTTPConnection(url)
+    # 这里报错待调试
     conn.request("POST", path, data, header)
     r1 = conn.getresponse()
     # print(r1)
@@ -26,6 +27,7 @@ if __name__ == '__main__':
     data = {
         'test',
     }
+    path = "\\";
     headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain"}
     recvData = httpPost(url, path, data, headers)
     # print("收到返回"+recvData)
